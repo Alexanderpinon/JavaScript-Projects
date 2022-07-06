@@ -3,7 +3,7 @@ const Calculator = {
     //this will display 0 on the screen
     Display_Value: '0',
     //this will hold the first operand for any expressions, we set it to null for now
-    first_Operand: null,
+    First_Operand: null,
     //this checks wether or not the second operand has been inputted by the user
     Wait_Second_Operand: false,
     //this will hold the operator, we set it to null for now
@@ -51,7 +51,7 @@ function Handle_Operator(Next_Operator) {
         return;
     }
     if (First_Operand == null) {
-        Calculator.first_Operand = Value_of_Input;
+        Calculator.First_Operand = Value_of_Input;
     } else if (operator) {//checks if an operator alrady exists
         const Value_Now = First_Operand || 0;
         //if operator exists operator, property lookup is performed for the operator
@@ -63,7 +63,7 @@ function Handle_Operator(Next_Operator) {
         //this will remove any trailing 0's
         result = (result *1).toString();
         Calculator.Display_Value = parseFloat(result);
-        Calculator.first_Operand = parseFloat(result);
+        Calculator.First_Operand = parseFloat(result);
     }
     Calculator.Wait_Second_Operand = true;
     Calculator.operator = Next_Operator;
@@ -92,10 +92,10 @@ function Update_Display() {
 Update_Display();
 //this section monitors button clicks
 const keys = document.querySelector('.calculator-keys');
-keys.addEventListener('click,' (Event)) ; {
+keys.addEventListener('click', (event) => {
     //the target variable is an object that represnts the element
     //that was clicked
-    const { target } = Event;
+    const { target } = event;
     //if the elemet that was clicked on its not a button, exit the function
     if (!target.matches('button')) {
         return;
@@ -118,4 +118,4 @@ keys.addEventListener('click,' (Event)) ; {
     }
     Input_Digit(target.value);
     Update_Display();
-}
+})
