@@ -7,7 +7,7 @@ const Calculator = {
     //this checks wether or not the second operand has been inputted by the user
     Wait_Second_Operand: false,
     //this will hold the operator, we set it to null for now
-    operator: null
+    operator: null,
 };
 
 //this modifies values each time a button is clicked on
